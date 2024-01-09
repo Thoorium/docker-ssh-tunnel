@@ -14,7 +14,7 @@ CMD=(
 -i /auth-key
 -oStrictHostKeyChecking=accept-new
 -oServerAliveInterval=180
--R $LOCAL_PORT:localhost:$REMOTE_PORT $REMOTE_HOST
+-R 0.0.0.0:$LOCAL_PORT:127.0.0.1:$REMOTE_PORT $REMOTE_HOST
 )
 
 echo "Executing ${CMD[@]}"
