@@ -6,12 +6,12 @@ REMOTE_HOST="${REMOTE_HOST:-0}"
 IDENTITY_FILE="${IDENTITY_FILE:-0}"
 
 CMD=(
-ssh
+/usr/bin/autossh
+-M 0 -T -N -g -v
 -i $IDENTITY_FILE
--o StrictHostKeyChecking=accept-new
--fNv
--L
-$LOCAL_PORT:localhost:$REMOTE_PORT $REMOTE_HOST
+-oStrictHostKeyChecking=accept-new
+-oServerAliveInterval=180
+-R $LOCAL_PORT:localhost:$REMOTE_PORT $REMOTE_HOST
 )
 
 echo "Executing ${CMD[@]}"

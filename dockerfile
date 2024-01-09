@@ -1,6 +1,6 @@
 FROM alpine:3.19.0
 
-RUN apk add --no-cache bash openssh && \
+RUN apk add --no-cache bash autossh libressl && \
     ln -s /config /root/.ssh
 
 COPY ./entrypoint.sh /entrypoint.sh
